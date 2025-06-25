@@ -1,0 +1,47 @@
+{% extends 'core/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Salas Disponíveis</h2>
+    {% if user.is_authenticated %}
+        <a href="{% url 'criar_sala' %}" class="btn btn-success">
+            <i class="bi bi-plus-circle"></i> Criar Nova Sala
+        </a>
+    {% endif %}
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Nome</th>
+                <th>Capacidade</th>
+                <th>Descrição</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for sala in salas %}
+            <tr>
+                <td>{{ sala.nome }}</td>
+                <td>{{ sala.capacidade }}</td>
+                <td>{{ sala.descricao|truncatechars:30 }}</td>
+                <td>
+                    <a href="{% url 'fazer_reserva' %}?sala={{ sala.id }}" class="btn btn-sm btn-primary">
+                        Reservar
+                    </a>
+                    <a href="{% url 'ver_salas' %}" class="btn btn-sm btn-info">
+                        Ver Disponibilidade
+                    </a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4" class="text-center">Nenhuma sala cadastrada</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

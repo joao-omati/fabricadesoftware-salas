@@ -1,0 +1,11 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<h2>Cancelar Reserva</h2>
+<p>Tem certeza que deseja cancelar a reserva de <strong>{{ reserva.sala.nome }}</strong> no dia {{ reserva.data }} às {{ reserva.get_horario_display }}?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Confirmar Cancelamento</button>
+    <a href="{% url 'minhas_reservas' %}" class="btn btn-secondary">Voltar</a>
+</form>
+{% endblock %}

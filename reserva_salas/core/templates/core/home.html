@@ -1,0 +1,45 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<h2>Bem-vindo ao Sistema de Reserva de Salas</h2>
+
+{% if user.is_authenticated %}
+    <div class="mt-4">
+        <a href="{% url 'fazer_reserva' %}" class="btn btn-primary">Fazer Reserva</a>
+        <a href="{% url 'minhas_reservas' %}" class="btn btn-secondary">Minhas Reservas</a>
+    </div>
+{% else %}
+    <p class="mt-4">Faça login para reservar salas.</p>
+{% endif %}
+
+<h3 class="mt-4">Salas Disponíveis</h3>
+<ul class="list-group">
+    {% for sala in salas %}
+        <li class="list-group-item">{{ sala.nome }} - Capacidade: {{ sala.capacidade }}</li>
+    {% endfor %}
+</ul>
+
+<h3 class="mt-4">Reservas para Hoje</h3>
+{% if reservas_hoje %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Sala</th>
+                <th>Horário</th>
+                <th>Reservado por</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for reserva in reservas_hoje %}
+                <tr>
+                    <td>{{ reserva.sala.nome }}</td>
+                    <td>{{ reserva.get_horario_display }}</td>
+                    <td>{{ reserva.usuario.username }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>Não há reservas para hoje.</p>
+{% endif %}
+{% endblock %}
