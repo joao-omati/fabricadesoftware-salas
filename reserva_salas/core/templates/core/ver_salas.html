@@ -1,0 +1,63 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<h2>Salas Disponíveis</h2>
+
+<h3 class="mt-4">Disponibilidade para Hoje ({{ hoje }})</h3>
+{% for info in salas_info %}
+    <div class="card mb-4">
+        <div class="card-header">
+            <h4>{{ info.sala.nome }} (Capacidade: {{ info.sala.capacidade }})</h4>
+        </div>
+        <div class="card-body">
+            <h5>Horários Disponíveis:</h5>
+            <div class="d-flex flex-wrap">
+                {% for horario in info.sala.HORARIOS %}
+                    {% if horario.0 not in info.reservas_hoje %}
+                        <div class="m-2 p-2 border rounded bg-light">
+                            {{ horario.1 }}
+                            {% if user.is_authenticated %}
+                                <a href="{% url 'fazer_reserva' %}?sala={{ info.sala.id }}&data={{ hoje|date:'Y-m-d' }}&horario={{ horario.0 }}" 
+                                   class="btn btn-sm btn-success">Reservar</a>
+                            {% endif %}
+                        </div>
+                    {% else %}
+                        <div class="m-2 p-2 border rounded bg-secondary text-white">
+                            {{ horario.1 }} (Reservado)
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endfor %}
+
+<h3 class="mt-4">Disponibilidade para Amanhã ({{ amanha }})</h3>
+{% for info in salas_info %}
+    <div class="card mb-4">
+        <div class="card-header">
+            <h4>{{ info.sala.nome }} (Capacidade: {{ info.sala.capacidade }})</h4>
+        </div>
+        <div class="card-body">
+            <h5>Horários Disponíveis:</h5>
+            <div class="d-flex flex-wrap">
+                {% for horario in info.sala.HORARIOS %}
+                    {% if horario.0 not in info.reservas_amanha %}
+                        <div class="m-2 p-2 border rounded bg-light">
+                            {{ horario.1 }}
+                            {% if user.is_authenticated %}
+                                <a href="{% url 'fazer_reserva' %}?sala={{ info.sala.id }}&data={{ amanha|date:'Y-m-d' }}&horario={{ horario.0 }}" 
+                                   class="btn btn-sm btn-success">Reservar</a>
+                            {% endif %}
+                        </div>
+                    {% else %}
+                        <div class="m-2 p-2 border rounded bg-secondary text-white">
+                            {{ horario.1 }} (Reservado)
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}
