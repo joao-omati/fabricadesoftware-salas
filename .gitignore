@@ -1,0 +1,14 @@
+# Ignorar pastas __pycache__ em qualquer lugar do projeto
+__pycache__/
+**/__pycache__/
+
+# Ignorar arquivos compilados do Python
+*.py[cod]
+*$py.class
+
+# Ignorar ambiente virtual (pode ser venv ou .venv)
+venv/
+.venv/
+
+# Ignorar o banco de dados SQLite
+db.sqlite3
