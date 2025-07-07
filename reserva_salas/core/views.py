@@ -1,3 +1,4 @@
+from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
@@ -10,8 +11,8 @@ from .models import Sala, Reserva
 from .forms import RegistrarUsuarioForm, SalaForm, ReservaForm
 import datetime
 
-class HomeView(View):
-    def get(self, request):
+class HomeView(View): # em python classes não usam anotação de tipo de retorno exemplo: class HomeView(View) -> HttResponse, somente funciona em funções e métodos
+    def get(self, request:HttpRequest)->HttpResponse:
         salas = Sala.objects.filter(disponivel=True)[:5]
         hoje = datetime.date.today()
         reservas_hoje = Reserva.objects.filter(data=hoje).order_by('horario')[:5]
@@ -21,11 +22,11 @@ class HomeView(View):
         })
 
 class RegistrarUsuarioView(View):
-    def get(self, request):
+    def get(self, request:HttpRequest)->HttpResponse:
         form = RegistrarUsuarioForm()
         return render(request, 'core/registrar.html', {'form': form})
     
-    def post(self, request):
+    def post(self, request:HttpRequest)->HttpResponse:
         form = RegistrarUsuarioForm(request.POST)
         if form.is_valid():
             user = form.save()
@@ -35,10 +36,10 @@ class RegistrarUsuarioView(View):
         return render(request, 'core/registrar.html', {'form': form})
 
 class LoginUsuarioView(View):
-    def get(self, request):
+    def get(self, request:HttpRequest)->HttpResponse:
         return render(request, 'core/login.html')
     
-    def post(self, request):
+    def post(self, request:HttpRequest)->HttpResponse:
         username = request.POST['username']
         password = request.POST['password']
         user = authenticate(request, username=username, password=password)
@@ -49,7 +50,7 @@ class LoginUsuarioView(View):
         return render(request, 'core/login.html')
 
 class LogoutUsuarioView(LoginRequiredMixin, View):
-    def get(self, request):
+    def get(self, request:HttpRequest)->HttpResponse:
         logout(request)
         return redirect('home')
 
@@ -117,7 +118,7 @@ class CancelarReservaView(LoginRequiredMixin, DeleteView):
         return super().delete(request, *args, **kwargs)
 
 class VerSalasView(View):
-    def get(self, request):
+    def get(self, request:HttpRequest)->HttpResponse:
         salas = Sala.objects.filter(disponivel=True)
         hoje = datetime.date.today()
         amanha = hoje + datetime.timedelta(days=1)
