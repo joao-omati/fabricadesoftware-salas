@@ -12,3 +12,5 @@ venv/
 
 # Ignorar o banco de dados SQLite
 db.sqlite3
+
+conection.py
