@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservar Salas - Reserva de Salas</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="shortcut icon" href="../images/logoreservadesala.png" type="image/x-icon">
+</head>
+<body class="dashboard-page">
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <img class="logo-icon" src="../images/logoreservadesala.png" alt="">
+                    <div class="logo-text">
+                        <h3>Reserva de Salas</h3>
+                        <p>Sistema de Gestão</p>
+                    </div>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="nav-item">
+                        <a href="dashboard.html">
+                            <span class="nav-icon">🏠</span>
+                            Início
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="cadastrar.html">
+                            <span class="nav-icon">📝</span>
+                            Cadastrar Reservas
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="reservar.html">
+                            <span class="nav-icon">📅</span>
+                            Reservar Salas
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="exibir.html">
+                            <span class="nav-icon">👁️</span>
+                            Exibir Salas
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="relatorios.html">
+                            <span class="nav-icon">📊</span>
+                            Relatórios
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="perfil.html">
+                            <span class="nav-icon">⚙️</span>
+                            Configurações
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <button class="btn-logout" onclick="logout()">
+                    <span class="logout-icon">🚪</span>
+                    Sair
+                </button>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="page-header">
+                <div class="page-title">
+                    <h1>Reservar Salas</h1>
+                    <p>Cadastre e edite Blocos, Salas, Turmas e Cursos</p>
+                </div>
+            </header>
+            
+            <!-- Filters -->
+            <section class="filters-section">
+                <h3>Filtros</h3>
+                <div class="filters-grid">
+                    <div class="filter-group">
+                        <label for="filter-bloco-res">Bloco</label>
+                        <select id="filter-bloco-res" name="bloco">
+                            <option value="">Selecione</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                            <option value="D">D</option>
+                            <option value="E">E</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="filter-curso-res">Curso</label>
+                        <select id="filter-curso-res" name="curso">
+                            <option value="">Selecione</option>
+                            <option value="engenharia">Engenharia</option>
+                            <option value="medicina">Medicina</option>
+                            <option value="direito">Direito</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="filter-turma-res">Turma</label>
+                        <select id="filter-turma-res" name="turma">
+                            <option value="">Selecione</option>
+                            <option value="SB276">SB276</option>
+                            <option value="SB306">SB306</option>
+                            <option value="ADM2PM">ADM2PM</option>
+                            <option value="DIR2PM">DIR2PM</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="filter-dia-res">Dia da Semana</label>
+                        <select id="filter-dia-res" name="dia">
+                            <option value="">Selecione</option>
+                            <option value="segunda">Segunda</option>
+                            <option value="terca">Terça</option>
+                            <option value="quarta">Quarta</option>
+                            <option value="quinta">Quinta</option>
+                            <option value="sexta">Sexta</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="filter-turno-res">Turno</label>
+                        <select id="filter-turno-res" name="turno">
+                            <option value="">Selecione</option>
+                            <option value="manha">Manhã</option>
+                            <option value="tarde">Tarde</option>
+                            <option value="noite">Noite</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-actions">
+                        <button type="button" class="btn-secondary" onclick="clearFilters()">Limpar Filtros</button>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Reserva Form Area -->
+            <section class="form-section">
+                <div class="form-container">
+                    <h3>Área de Reserva</h3>
+                    <p>Selecione os filtros acima para visualizar as salas disponíveis e fazer sua reserva.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <script src="../js/script.js"></script>
+</body>
+</html>
+
