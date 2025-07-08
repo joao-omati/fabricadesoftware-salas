@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exibir Salas - Reserva de Salas</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="shortcut icon" href="../images/logoreservadesala.png" type="image/x-icon">
+</head>
+<body class="dashboard-page">
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <img class="logo-icon" src="../images/logoreservadesala.png" alt="">
+                    <div class="logo-text">
+                        <h3>Reserva de Salas</h3>
+                        <p>Sistema de Gestão</p>
+                    </div>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="nav-item">
+                        <a href="dashboard.html">
+                            <span class="nav-icon">🏠</span>
+                            Início
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="cadastrar.html">
+                            <span class="nav-icon">📝</span>
+                            Cadastrar Reservas
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="reservar.html">
+                            <span class="nav-icon">📅</span>
+                            Reservar Salas
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="exibir.html">
+                            <span class="nav-icon">👁️</span>
+                            Exibir Salas
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="relatorios.html">
+                            <span class="nav-icon">📊</span>
+                            Relatórios
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="configuracoes.html">
+                            <span class="nav-icon">⚙️</span>
+                            Configurações
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <button class="btn-logout" onclick="logout()">
+                    <span class="logout-icon">🚪</span>
+                    Sair
+                </button>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="page-header">
+                <div class="page-title">
+                    <h1>Todas as Salas</h1>
+                    <p>Visualize e gerencie todas as salas da faculdade</p>
+                </div>
+            </header>
+            
+            <!-- Filter by Block -->
+            <section class="filter-block-section">
+                <h3>Filtrar por Bloco</h3>
+                <div class="block-buttons">
+                    <button class="btn-block active">Todos os Blocos</button>
+                    <button class="btn-block">Bloco A</button>
+                    <button class="btn-block">Bloco B</button>
+                    <button class="btn-block">Bloco C</button>
+                    <button class="btn-block">Bloco D</button>
+                    <button class="btn-block">Bloco E</button>
+                    <button class="btn-block">Bloco F</button>
+                </div>
+            </section>
+            
+            <!-- Rooms Display -->
+            <section class="rooms-display-section">
+                <div class="room-card">
+                    <div class="card-header">
+                        <h4>Sala A-101</h4>
+                        <span class="status occupied">Ocupada</span>
+                    </div>
+                    <p>Bloco A</p>
+                    <p>Capacidade: <strong>40 alunos</strong></p>
+                    <p>TV: <strong>55"</strong></p>
+                    <hr>
+                    <p>Turma: Engenharia de Software - 3º Período</p>
+                    <p>Professor: Prof. João Silva</p>
+                    <p>Turno: Manhã</p>
+                    <p>Período: 31/01/2024 - 14/12/2024</p>
+                    <button class="btn-edit">Editar</button>
+                </div>
+                
+                <div class="room-card">
+                    <div class="card-header">
+                        <h4>Sala A-102</h4>
+                        <span class="status available">Livre</span>
+                    </div>
+                    <p>Bloco A</p>
+                    <p>Capacidade: <strong>35 alunos</strong></p>
+                    <p>TV: <strong>50"</strong></p>
+                    <hr>
+                    <button class="btn-edit">Editar</button>
+                </div>
+                
+                <div class="room-card">
+                    <div class="card-header">
+                        <h4>Sala A-103</h4>
+                        <span class="status available">Livre</span>
+                    </div>
+                    <p>Bloco A</p>
+                    <p>Capacidade: <strong>45 alunos</strong></p>
+                    <p>TV: <strong>65"</strong></p>
+                    <hr>
+                    <button class="btn-edit">Editar</button>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <script src="../js/script.js"></script>
+</body>
+</html>
+
