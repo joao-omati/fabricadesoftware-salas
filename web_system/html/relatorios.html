@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios - Reserva de Salas</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body class="dashboard-page">
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <img class="logo-icon" src="../images/logoreservadesala.png" alt="">
+                    <div class="logo-text">
+                        <h3>Reserva de Salas</h3>
+                        <p>Sistema de Gestão</p>
+                    </div>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="nav-item">
+                        <a href="dashboard.html">
+                            <span class="nav-icon">🏠</span>
+                            Início
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="cadastrar.html">
+                            <span class="nav-icon">📝</span>
+                            Cadastrar Reservas
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="reservar.html">
+                            <span class="nav-icon">📅</span>
+                            Reservar Salas
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="exibir.html">
+                            <span class="nav-icon">👁️</span>
+                            Exibir Salas
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="relatorios.html">
+                            <span class="nav-icon">📊</span>
+                            Relatórios
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="perfil.html">
+                            <span class="nav-icon">⚙️</span>
+                            Configurações
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <button class="btn-logout" onclick="logout()">
+                    <span class="logout-icon">🚪</span>
+                    Sair
+                </button>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="page-header">
+                <div class="page-title">
+                    <h1>Relatórios</h1>
+                    <p>Gere relatórios consolidados sobre o uso das salas</p>
+                </div>
+            </header>
+            
+            <div class="reports-container">
+                <section class="report-filters">
+                    <h3>Configuração</h3>
+                    <div class="form-group">
+                        <label for="report-type">Tipo de Relatório</label>
+                        <select id="report-type" name="report-type">
+                            <option value="">Selecione o tipo</option>
+                            <option value="uso-salas">Uso de Salas</option>
+                            <option value="reservas-futuras">Reservas Futuras</option>
+                            <option value="historico-reservas">Histórico de Reservas</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="filter-bloco-rel">Filtrar por Bloco</label>
+                        <select id="filter-bloco-rel" name="bloco">
+                            <option value="">Todos os blocos</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                            <option value="D">D</option>
+                            <option value="E">E</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="filter-turma-curso-rel">Filtrar por Turma/Curso</label>
+                        <input type="text" id="filter-turma-curso-rel" name="turma-curso" placeholder="Ex: Engenharia de Software">
+                    </div>
+                    
+                    <button class="btn-primary" onclick="generateReport()">Gerar Relatório</button>
+                </section>
+                
+                <section class="report-display">
+                    <div class="no-report-message">
+                        <div class="no-report-icon">📊</div>
+                        <p>Nenhum relatório gerado</p>
+                        <p>Configure os parâmetros e clique em "Gerar Relatório" para visualizar os dados.</p>
+                    </div>
+                    <!-- Report content will be loaded here -->
+                </section>
+            </div>
+        </main>
+    </div>
+    
+    <script src="../js/script.js"></script>
+</body>
+</html>
+
