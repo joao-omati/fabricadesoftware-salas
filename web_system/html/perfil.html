@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Usuário - Reserva de Salas</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="shortcut icon" href="../images/logoreservadesala.png" type="image/x-icon">
+</head>
+<body class="dashboard-page">
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <img class="logo-icon" src="../images/logoreservadesala.png" alt="">
+                    <div class="logo-text">
+                        <h3>Reserva de Salas</h3>
+                        <p>Sistema de Gestão</p>
+                    </div>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="nav-item">
+                        <a href="dashboard.html">
+                            <span class="nav-icon">🏠</span>
+                            Início
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="cadastrar.html">
+                            <span class="nav-icon">📝</span>
+                            Cadastrar Reservas
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="reservar.html">
+                            <span class="nav-icon">📅</span>
+                            Reservar Salas
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="exibir.html">
+                            <span class="nav-icon">👁️</span>
+                            Exibir Salas
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="relatorios.html">
+                            <span class="nav-icon">📊</span>
+                            Relatórios
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="perfil.html">
+                            <span class="nav-icon">⚙️</span>
+                            Configurações
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <button class="btn-logout" onclick="logout()">
+                    <span class="logout-icon">🚪</span>
+                    Sair
+                </button>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="page-header">
+                <div class="page-title">
+                    <div>
+                        <h1>Perfil do Usuário</h1>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Profile Form -->
+            <section class="profile-section">
+                <form class="profile-form" id="profileForm">
+                    <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" name="nome" placeholder="Administrador">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email-perfil">E-mail</label>
+                        <input type="email" id="email-perfil" name="email" placeholder="Digite seu e-mail">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="senha-atual">Alterar Senha</label>
+                        <input type="password" id="senha-atual" name="senha-atual" placeholder="Senha Atual">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="nova-senha">Nova Senha</label>
+                        <input type="password" id="nova-senha" name="nova-senha" placeholder="Digite sua senha">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmar-senha">Confirmar Senha</label>
+                        <input type="password" id="confirmar-senha" name="confirmar-senha" placeholder="Digite sua senha">
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Salvar Perfil</button>
+                </form>
+            </section>
+        </main>
+    </div>
+    
+    <script src="../js/script.js"></script>
+</body>
+</html>
+
